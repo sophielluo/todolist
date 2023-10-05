@@ -5,12 +5,19 @@
 This web application provides users with a convenient way to manage their daily tasks. 
 Users can add, edit, or delete tasks, and even upload pictures for each task. 
 
+## Installation
+
+To run this application locally, follow these steps:
+
+1. Download the repository
+2. Run "todolist.py" in a virtual flask environment on vscode.
+3. Visit localhost to access the application.
+
 ## Features
 
 - **Task Management**: Add, edit, and delete tasks effortlessly.
 - **Image Upload**: Attach pictures to tasks for better visualization.
 - **Customization**: Attach images to make them visually appealing and for better visualization.
-
 
 ## Usage
 
