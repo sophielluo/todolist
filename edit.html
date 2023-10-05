@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head><title>edit item</title></head>
+    <link rel="stylesheet" href="{{url_for('static', filename='todo.css')}}">
+    <body>
+        edit item {{item.ID}}
+        <form method="post" action="{{url_for('edit', itemID=item.ID)}}" enctype="multipart/form-data">
+            <label for="category">category:</label>
+            <select id="category" name="Category">
+                {% for category in categories %}
+                    {% if category == item.Category %}
+                    <option value={{category.ID}} selected>{{category.Name}}</option>
+                    {% else %}
+                    <option value={{category.ID}}>{{category.Name}}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+            <br>description:
+            <br><textarea id="description" name="Description" placeholder="{{item.description}}">{{item.description}}</textarea>
+            <br>photo upload:
+            <input id="photo" name="Image" type="file">
+            <br>
+            <label for="status">status:</label>
+            <select id="status" name="Status">
+                {% if item.status=='Pending' %}
+                    <option value='Pending' selected>Pending</option>
+                    <option value='Completed'>Completed</option>
+                {% else %}
+                    <option value='Pending'>Pending</option>
+                    <option value='Completed' selected>Completed</option>
+                {% endif %}
+            </select>
+            <input type="submit">
+        </form>
+        <a href="{{url_for('display')}}">discard and return to listing</a>
+    </body>
+</html>

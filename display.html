@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head><title>to do list</title></head>
+    <link rel="stylesheet" href="{{url_for('static', filename='todo.css')}}">
+    <body>
+        {% if todoList %}
+        <table>
+            <tr>
+                <th>Category</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Added On</th>
+                <th>Modify</th>
+            </tr>
+            {% for item in todoList %}
+            <tr>
+                <td>{{item.categoryName}}</td>
+                <td>
+                    {{item.description}}
+                    {% if item.imageURL!='None' %}
+                        <span>
+                        <img src="{{url_for('get_file', filename=item.imageURL)}}"
+                            alt="{{item.imageURL}}">
+                        </span>
+                    {% endif %}  
+                </td>
+                <td>{{item.status}}</td>
+                <td>{{item.addOn}}</td>
+                <td>
+                    <a href="{{url_for('edit', itemID=item.ID)}}">Edit</a>
+                    <a href="{{url_for('delete', itemID=item.ID)}}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <p>todo list is empty!</p>
+        {% endif %}
+        <a href="{{url_for('add')}}">Add item here.</a>
+    </body>
+</html>
+

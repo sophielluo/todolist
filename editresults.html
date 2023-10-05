@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head><title>edit results</title></head>
+    <link rel="stylesheet" href="{{url_for('static', filename='todo.css')}}">
+    <body>
+        {% if deleted %}
+            <p>item deleted (ID): {{itemID}}</p>
+            <p>edit result: {{resulttext}}</p>
+        {% else%}
+            <p>item edited (ID): {{itemID}}</p>
+            <p>edit result: {{resulttext}}</p>
+        {% endif %}
+        <a href="{{url_for('display')}}">return to listing</a>
+    </body>
+</html>
