@@ -1,4 +1,4 @@
-# ToDoList Web Application README
+# Todo List Web Application README
 
 ## Overview
 
