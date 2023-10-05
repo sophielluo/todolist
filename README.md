@@ -31,7 +31,7 @@ To run this application locally, follow these steps:
 ## Technologies Used
 
 - **Frontend**: HTML, CSS
-- **Database**: MongoDB
+- **Database**: SQLite
 - **Framework**: Flask
 - **Programming Language**: Python
 
