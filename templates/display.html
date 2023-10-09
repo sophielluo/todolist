@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
-    <head><title>to do list</title></head>
-    <link rel="stylesheet" href="{{url_for('static', filename='todo.css')}}">
+    <head><title>Todo List</title></head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <body>
         {% if todoList %}
         <table>
@@ -19,7 +19,8 @@
                     {{item.description}}
                     {% if item.imageURL!='None' %}
                         <span>
-                        <img src="{{url_for('get_file', filename=item.imageURL)}}"
+                        <img style="display:block;" width="50%" height="50%" 
+                            src="{{url_for('main.get_file', filename=item.imageURL)}}"
                             alt="{{item.imageURL}}">
                         </span>
                     {% endif %}  
@@ -27,8 +28,8 @@
                 <td>{{item.status}}</td>
                 <td>{{item.addOn}}</td>
                 <td>
-                    <a href="{{url_for('edit', itemID=item.ID)}}">Edit</a>
-                    <a href="{{url_for('delete', itemID=item.ID)}}">Delete</a>
+                    <a href="{{url_for('main.edit', itemID=item.ID)}}">Edit</a>
+                    <a href="{{url_for('main.delete', itemID=item.ID)}}">Delete</a>
                 </td>
             </tr>
             {% endfor %}
@@ -36,7 +37,8 @@
         {% else %}
         <p>todo list is empty!</p>
         {% endif %}
-        <a href="{{url_for('add')}}">Add item here.</a>
+        <a href="{{url_for('main.add')}}"><button>Add Item</button></a>
+        <a href="{{ url_for('main.logout_the_user') }}"><button>Logout</button></a>
     </body>
 </html>
 
