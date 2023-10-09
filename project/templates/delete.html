@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Delete item</title></head>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <body>
+        <p>YOU ARE DELETING THE FOLLOWING ITEM: {{item.ID}}</p>
+        <table>
+            <tr>
+                <th>Category</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Added On</th>
+            </tr>
+            {% if item %}
+            <tr>
+                <td>{{item.Category}}</td>
+                <td>
+                    {{item.Description}}
+                    {% if item.Image!='None' %}
+                        <span>
+                        <img src="{{url_for('main.get_file', filename=item.Image)}}"
+                            alt="{{item.Image}}">
+                        </span>
+                    {% endif %}  
+                </td>
+                <td>{{item.Status}}</td>
+                <td>{{item.AddOn}}</td>
+            </tr>
+            {% endif %}
+        </table>
+        <br>
+        <form method="POST" action=" {{url_for('main.delete', itemID=item.ID)}}">
+            <input type="hidden" name="delete">
+            <input type="submit" value="Delete">
+        </form>
+        <br>
+        <a href="{{url_for('main.display')}}">discard and return to listing</a>
+    </body>
+</html>
