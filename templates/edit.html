@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-    <head><title>edit item</title></head>
-    <link rel="stylesheet" href="{{url_for('static', filename='todo.css')}}">
+    <head><title>Edit item</title></head>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
     <body>
         edit item {{item.ID}}
-        <form method="post" action="{{url_for('edit', itemID=item.ID)}}" enctype="multipart/form-data">
+        <form method="post" action="{{url_for('main.edit', itemID=item.ID)}}" enctype="multipart/form-data">
             <label for="category">category:</label>
             <select id="category" name="Category">
                 {% for category in categories %}
@@ -32,6 +32,6 @@
             </select>
             <input type="submit">
         </form>
-        <a href="{{url_for('display')}}">discard and return to listing</a>
+        <a href="{{url_for('main.display')}}">discard and return to listing</a>
     </body>
 </html>
